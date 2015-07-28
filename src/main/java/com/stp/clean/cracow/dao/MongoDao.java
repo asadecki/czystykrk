@@ -35,18 +35,18 @@ public class MongoDao {
     }
 
     public void addNewRequestDetails(RequestDetails requestDetails) {
-        DBCollection table = this.mongoDb.getCollection(REQUEST_COLLECTION_NAME);
+        DBCollection table = mongoDb.getCollection(REQUEST_COLLECTION_NAME);
         table.insert(buildBasicDBObjectFromRequestDetails(requestDetails));
     }
 
     public void addNewSaying(Saying saying) {
-        DBCollection table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME);
+        DBCollection table = mongoDb.getCollection(SAYING_COLLECTION_NAME);
         table.insert(buildBasicDBObjectFromSaying(saying));
     }
 
     public List<RequestDetails> getAllRequestDetailsList() {
         List<RequestDetails> requestDetailsList = new ArrayList<>();
-        DBCollection table = this.mongoDb.getCollection(REQUEST_COLLECTION_NAME);
+        DBCollection table = mongoDb.getCollection(REQUEST_COLLECTION_NAME);
         DBCursor cursor = table.find();
         while (cursor.hasNext()) {
             DBObject document = cursor.next();
@@ -58,7 +58,7 @@ public class MongoDao {
     }
 
     public String getRandomSaying() {
-        long count = this.mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
+        long count = mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
 
         if (count == 0) {
             return Saying.DEFAULT_SAYING;
@@ -66,7 +66,7 @@ public class MongoDao {
 
         int elementsToSkip = new Random().nextInt((int) count);
 
-        DBCollection table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME);
+        DBCollection table = mongoDb.getCollection(SAYING_COLLECTION_NAME);
         DBCursor cursor = table.find();
         cursor.skip(elementsToSkip);
         if (cursor.hasNext()) {
@@ -110,8 +110,8 @@ public class MongoDao {
 
         requestDetails.setEmail(String.valueOf(document.get("email")));
         requestDetails.setUserName(String.valueOf(document.get("userName")));
-        requestDetails.setLatitude(Double.parseDouble(document.get("latitude").toString()));
-        requestDetails.setLongitude(Double.parseDouble(document.get("longitude").toString()));
+        requestDetails.setLatitude(Double.parseDouble(String.valueOf(document.get("latitude"))));
+        requestDetails.setLongitude(Double.parseDouble(String.valueOf(document.get("longitude"))));
         requestDetails.setPhoneNumber(String.valueOf(document.get("phoneNumber")));
 
         requestDetails.setPhotos((List<String>) document.get("photos"));

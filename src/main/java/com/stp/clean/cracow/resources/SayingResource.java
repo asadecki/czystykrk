@@ -33,5 +33,4 @@ public class SayingResource {
     public String getRequestDetailsList() {
         return sayingService.getSaying();
     }
-
 }

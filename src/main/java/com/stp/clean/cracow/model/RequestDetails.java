@@ -2,6 +2,7 @@ package com.stp.clean.cracow.model;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.QueryParam;
 import java.util.List;
 
@@ -17,9 +18,11 @@ public class RequestDetails {
     @QueryParam("phoneNumber")
     private String phoneNumber;
 
+    @NotNull
     @QueryParam("latitude")
     private Double latitude;
 
+    @NotNull
     @QueryParam("longitude")
     private Double longitude;
 
