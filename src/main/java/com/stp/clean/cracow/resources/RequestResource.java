@@ -1,7 +1,9 @@
 package com.stp.clean.cracow.resources;
 
 import com.codahale.metrics.annotation.Timed;
+import com.stp.clean.cracow.dao.MongoDao;
 import com.stp.clean.cracow.model.RequestDetails;
+import org.eclipse.jetty.server.Response;
 
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
@@ -13,12 +15,16 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class RequestResource {
 
-    public RequestResource() {
+    private final MongoDao mongoDao;
+
+    public RequestResource(MongoDao mongoDao) {
+        this.mongoDao = mongoDao;
     }
 
     @GET
     @Timed
-    public RequestDetails getRequestDetails(@BeanParam RequestDetails requestDetails) {
-        return requestDetails;
+    public int getRequestDetails(@BeanParam RequestDetails requestDetails) {
+        mongoDao.addNewRequestDetails(requestDetails);
+        return Response.SC_OK;
     }
 }
