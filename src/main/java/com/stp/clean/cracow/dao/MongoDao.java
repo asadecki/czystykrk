@@ -8,6 +8,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoURI;
 import com.stp.clean.cracow.exception.WrongCredentialsException;
 import com.stp.clean.cracow.model.RequestDetails;
+import com.stp.clean.cracow.model.Saying;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -37,9 +38,9 @@ public class MongoDao {
         table.insert(buildBasicDBObjectFromRequestDetails(requestDetails));
     }
 
-    public void addNewSaying(String saying) {
+    public void addNewSaying(Saying saying) {
         DBCollection table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME);
-        table.insert(buildBasicDBObjectFromString(saying));
+        table.insert(buildBasicDBObjectFromSaying(saying));
     }
 
     public List<RequestDetails> getAllRequestDetailsList() {
@@ -82,9 +83,9 @@ public class MongoDao {
         return document;
     }
 
-    private BasicDBObject buildBasicDBObjectFromString(String saying) {
+    private BasicDBObject buildBasicDBObjectFromSaying(Saying saying) {
         BasicDBObject document = new BasicDBObject();
-        document.put("saying", saying);
+        document.put("saying", saying.getSaying());
         return document;
     }
 

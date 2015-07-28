@@ -1,6 +1,7 @@
 package com.stp.clean.cracow.services;
 
 import com.stp.clean.cracow.dao.MongoDao;
+import com.stp.clean.cracow.model.Saying;
 
 public class SayingService {
 
@@ -10,7 +11,7 @@ public class SayingService {
         this.mongoDao = mongoDao;
     }
 
-    public void postSaying(String saying) {
+    public void postSaying(Saying saying) {
         mongoDao.addNewSaying(saying);
     }
 

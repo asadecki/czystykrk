@@ -1,5 +1,6 @@
 package com.stp.clean.cracow.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.ws.rs.QueryParam;
@@ -14,10 +15,12 @@ public class Saying {
         // Jackson deserialization
     }
 
+    @JsonProperty
     public String getSaying() {
         return saying;
     }
 
+    @JsonProperty
     public void setSaying(String saying) {
         this.saying = saying;
     }

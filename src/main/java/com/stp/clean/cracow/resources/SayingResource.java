@@ -1,6 +1,7 @@
 package com.stp.clean.cracow.resources;
 
 import com.codahale.metrics.annotation.Timed;
+import com.stp.clean.cracow.model.Saying;
 import com.stp.clean.cracow.services.SayingService;
 import org.eclipse.jetty.server.Response;
 
@@ -22,7 +23,7 @@ public class SayingResource {
 
     @POST
     @Timed
-    public int postRequestDetails(@BeanParam String saying) {
+    public int postRequestDetails(@BeanParam Saying saying) {
         sayingService.postSaying(saying);
         return Response.SC_OK;
     }
