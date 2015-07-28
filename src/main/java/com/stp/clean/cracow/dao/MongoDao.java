@@ -59,17 +59,22 @@ public class MongoDao {
 
     public String getRandomSaying() {
         long count = this.mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
+
+        if (count == 0) {
+            return Saying.DEFAULT_SAYING;
+        }
+
         int elementsToSkip = new Random().nextInt((int) count);
 
-        DBCollection table = this.mongoDb.getCollection(REQUEST_COLLECTION_NAME);
+        DBCollection table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME);
         DBCursor cursor = table.find();
         cursor.skip(elementsToSkip);
         if (cursor.hasNext()) {
             DBObject document = cursor.next();
             return buildSayingFromBasicDBObject(document).getSaying();
-        } else {
-            return Saying.DEFAULT_SAYING;
         }
+
+        return Saying.DEFAULT_SAYING;
     }
 
 
