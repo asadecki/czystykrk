@@ -15,6 +15,6 @@ public class SayingService {
     }
 
     public String getSaying() {
-
+        return mongoDao.getRandomSaying();
     }
 }
