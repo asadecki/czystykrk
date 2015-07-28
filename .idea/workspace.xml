@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00ecbc77-afe7-4175-9e0a-b5018a6d76e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/CleanCracowApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/CleanCracowApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/config/CleanCracowConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/config/CleanCracowConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/model/RequestDetails.java" afterPath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/model/RequestDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/resources/RequestResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/resources/RequestResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/clean-cracow.yml" afterPath="$PROJECT_DIR$/src/main/resources/clean-cracow.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="czystykrk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -95,6 +89,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.03916449">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RequestResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/resources/RequestResource.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,7 +135,6 @@
         <option value="$PROJECT_DIR$/src/clean-cracow.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/model/Saying.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/resources/SayingResource.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/resources/clean-cracow.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/CleanCracowApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/config/CleanCracowConfiguration.java" />
@@ -139,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/stp/clean/cracow/model/RequestDetails.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -907,12 +911,12 @@
       <option name="number" value="Default" />
       <updated>1438067236317</updated>
       <workItem from="1438067237528" duration="2428000" />
-      <workItem from="1438069756319" duration="1236000" />
+      <workItem from="1438069756319" duration="1365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3664000" />
+    <option name="totallyTimeSpent" value="3793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="34" width="1920" height="1164" extended-state="0" />
@@ -1037,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.073051944">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/clean-cracow.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1100,6 +1096,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="84" selection-start-line="0" selection-start-column="84" selection-end-line="0" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03916449">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding />
         </state>
       </provider>
