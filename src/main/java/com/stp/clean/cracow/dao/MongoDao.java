@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 /* TODO check Spring support for MongoDB */
+/* TODO add support for GEO fields */
 public class MongoDao {
 
     private static final String REQUEST_COLLECTION_NAME = "requests";
