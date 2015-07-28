@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.server.connector.typr=http -Ddw.server.connector.port=80 -jar target/clean-cracow-1.0-SNAPSHOT.jar server
+web: java $JAVA_OPTS -jar target/clean-cracow-1.0-SNAPSHOT.jar server clean-cracow.yml
