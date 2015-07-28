@@ -24,7 +24,7 @@ public class CleanCracowApplication extends Application<CleanCracowConfiguration
     @Override
     public void run(CleanCracowConfiguration configuration,
                     Environment environment) {
-        final RequestResource resource = new RequestResource(configuration.getDefaultUserName());
+        final RequestResource resource = new RequestResource();
         environment.jersey().register(resource);
     }
 
