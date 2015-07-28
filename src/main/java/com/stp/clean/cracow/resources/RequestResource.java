@@ -1,8 +1,8 @@
 package com.stp.clean.cracow.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import com.stp.clean.cracow.dao.MongoDao;
 import com.stp.clean.cracow.model.RequestDetails;
+import com.stp.clean.cracow.services.RequestService;
 import org.eclipse.jetty.server.Response;
 
 import javax.ws.rs.BeanParam;
@@ -17,16 +17,16 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class RequestResource {
 
-    private final MongoDao mongoDao;
+    private final RequestService requestService;
 
-    public RequestResource(MongoDao mongoDao) {
-        this.mongoDao = mongoDao;
+    public RequestResource(RequestService requestService) {
+        this.requestService = requestService;
     }
 
     @POST
     @Timed
     public int postRequestDetails(@BeanParam RequestDetails requestDetails) {
-        mongoDao.addNewRequestDetails(requestDetails);
+        requestService.postRequestDetails(requestDetails);
         return Response.SC_OK;
     }
 
@@ -34,6 +34,6 @@ public class RequestResource {
     @Timed
     @Path("/list")
     public List<RequestDetails> getRequestDetailsList() {
-        return mongoDao.getAllRequestDetailsList();
+        return requestService.getRequestDetailsList();
     }
 }

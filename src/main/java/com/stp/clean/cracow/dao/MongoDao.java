@@ -17,6 +17,7 @@ import java.util.List;
 public class MongoDao {
 
     private static final String REQUEST_COLLECTION_NAME = "requests";
+    private static final String SAYING_COLLECTION_NAME = "sayings";
     public static final String MONGOLAB_URI = "MONGOLAB_URI";
 
     private DB mongoDb;
@@ -36,6 +37,11 @@ public class MongoDao {
         table.insert(buildBasicDBObjectFromRequestDetails(requestDetails));
     }
 
+    public void addNewSaying(String saying) {
+        DBCollection table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME);
+        table.insert(buildBasicDBObjectFromString(saying));
+    }
+
     public List<RequestDetails> getAllRequestDetailsList() {
         List<RequestDetails> requestDetailsList = new ArrayList<>();
         DBCollection table = this.mongoDb.getCollection(REQUEST_COLLECTION_NAME);
@@ -47,6 +53,12 @@ public class MongoDao {
         }
 
         return requestDetailsList;
+    }
+
+    public String getRandomSaying() {
+        long table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
+
+        return "dupa";
     }
 
     private void authenticate(MongoURI mongoURI, DB mongoDb) {
@@ -67,6 +79,12 @@ public class MongoDao {
         document.put("phoneNumber", requestDetails.getPhoneNumber());
         document.put("photos", requestDetails.getPhotos());
 
+        return document;
+    }
+
+    private BasicDBObject buildBasicDBObjectFromString(String saying) {
+        BasicDBObject document = new BasicDBObject();
+        document.put("saying", saying);
         return document;
     }
 
