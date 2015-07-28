@@ -7,6 +7,8 @@ import javax.ws.rs.QueryParam;
 
 public class Saying {
 
+    public static final String DEFAULT_SAYING = "Hodor Hodor";
+
     @Length(max = 200)
     @QueryParam("saying")
     private String saying;

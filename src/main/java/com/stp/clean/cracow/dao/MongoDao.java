@@ -13,6 +13,7 @@ import com.stp.clean.cracow.model.Saying;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /* TODO check Spring support for MongoDB */
 public class MongoDao {
@@ -57,10 +58,20 @@ public class MongoDao {
     }
 
     public String getRandomSaying() {
-        long table = this.mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
+        long count = this.mongoDb.getCollection(SAYING_COLLECTION_NAME).count();
+        int elementsToSkip = new Random().nextInt((int) count);
 
-        return "dupa";
+        DBCollection table = this.mongoDb.getCollection(REQUEST_COLLECTION_NAME);
+        DBCursor cursor = table.find();
+        cursor.skip(elementsToSkip);
+        if (cursor.hasNext()) {
+            DBObject document = cursor.next();
+            return buildSayingFromBasicDBObject(document).getSaying();
+        } else {
+            return Saying.DEFAULT_SAYING;
+        }
     }
+
 
     private void authenticate(MongoURI mongoURI, DB mongoDb) {
         if (mongoURI.getUsername() != null && mongoDb.authenticate(mongoURI.getUsername(), mongoURI.getPassword())) {
@@ -100,5 +111,11 @@ public class MongoDao {
 
         requestDetails.setPhotos((List<String>) document.get("photos"));
         return requestDetails;
+    }
+
+    private Saying buildSayingFromBasicDBObject(DBObject document) {
+        Saying saying = new Saying();
+        saying.setSaying(String.valueOf(document.get("saying")));
+        return saying;
     }
 }
