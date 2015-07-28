@@ -111,8 +111,17 @@ public class MongoDao {
 
         requestDetails.setEmail(String.valueOf(document.get("email")));
         requestDetails.setUserName(String.valueOf(document.get("userName")));
-        requestDetails.setLatitude(Double.parseDouble(String.valueOf(document.get("latitude"))));
-        requestDetails.setLongitude(Double.parseDouble(String.valueOf(document.get("longitude"))));
+
+
+        if (document.get("latitude") != null) {
+            requestDetails.setLatitude(Double.parseDouble(String.valueOf(document.get("latitude"))));
+        }
+
+        if (document.get("longitude") != null) {
+            requestDetails.setLongitude(Double.parseDouble(String.valueOf(document.get("longitude"))));
+        }
+
+
         requestDetails.setPhoneNumber(String.valueOf(document.get("phoneNumber")));
 
         requestDetails.setPhotos((List<String>) document.get("photos"));
